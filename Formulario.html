@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    Taller Práctico — Formularios en HTML</h1>
+
+<div class="seccion">
+<h2>🧠 Parte 1 — Preguntas y Respuestas.</h2>
+
+<p><strong>1. ¿Qué es un formulario en HTML?</strong><br>
+ R/: Es un conjunto de campos que permite al usuario ingresar datos en una página web para enviarlos al servidor.</p>
+
+<p><strong>2. ¿Para qué sirve la etiqueta &lt;form&gt;?</strong><br>
+R/: Sirve para crear el formulario y definir cómo y a dónde se enviarán los datos.</p>
+
+<p><strong>3. Diferencia entre método GET y POST</strong><br>
+R/: GET envía los datos por la URL y es visible.  
+POST envía los datos de manera oculta y es más seguro.</p>
+
+<p><strong>4. ¿Qué es validación de datos en formularios?</strong><br>
+R/:Es verificar que los datos ingresados cumplan ciertas reglas antes de enviarse.</p>
+
+<p><strong>5. Mencione 5 tipos de inputs en HTML</strong><br>
+R/: text, email, password, number, date.</p>
+</div>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro - 25+ Campos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .form-section h2 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input[type="week"],
+        input[type="color"],
+        input[type="range"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            width: auto;
+        }
+        input[type="file"] {
+            padding: 10px;
+            background: #f8f9fa;
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            border: none;
+            padding: 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        .range-value {
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Formulario de Registro Completo</h1>
+        
+        <form action="/submit" method="POST">
+            
+            <!-- Sección 1: Información Personal -->
+            <div class="form-section">
+                <h2>👤 Información Personal</h2>
+                
+                <div class="form-group">
+                    <label for="nombre">1. Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">2. Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">3. Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">4. Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha_nacimiento">5. Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                </div>
+                
+                <div class="form-group">
+                    <label for="edad">6. Edad:</label>
+                    <input type="number" id="edad" name="edad" min="18" max="100">
+                </div>
+                
+                <div class="form-group">
+                    <label>7. Género:</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="masculino" name="genero" value="masculino">
+                            <label for="masculino" style="display:inline;">Masculino</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="femenino" name="genero" value="femenino">
+                            <label for="femenino" style="display:inline;">Femenino</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="otro" name="genero" value="otro">
+                            <label for="otro" style="display:inline;">Otro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">8. Dirección:</label>
+                    <input type="text" id="direccion" name="direccion">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ciudad">9. Ciudad:</label>
+                    <select id="ciudad" name="ciudad">
+                        <option value="">Seleccionar ciudad</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="barcelona">Barcelona</option>
+                        <option value="valencia">Valencia</option>
+                        <option value="sevilla">Sevilla</option>
+                        <option value="malaga">Málaga</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sección 2: Información Adicional -->
+            <div class="form-section">
+                <h2>📋 Información Adicional</h2>
+                
+                <div class="form-group">
+                    <label for="sitio_web">10. Sitio web personal:</label>
+                    <input type="url" id="sitio_web" name="sitio_web">
+                </div>
+                
+                <div class="form-group">
+                    <label for="codigo_postal">11. Código postal:</label>
+                    <input type="text" id="codigo_postal" name="codigo_postal" pattern="[0-9]{5}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pais">12. País:</label>
+                    <select id="pais" name="pais">
+                        <option value="">Seleccionar país</option>
+                        <option value="espana">España</option>
+                        <option value="mexico">México</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="colombia">Colombia</option>
+                        <option value="chile">Chile</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="estado_civil">13. Estado civil:</label>
+                    <select id="estado_civil" name="estado_civil">
+                        <option value="">Seleccionar estado civil</option>
+                        <option value="soltero">Soltero/a</option>
+                        <option value="casado">Casado/a</option>
+                        <option value="divorciado">Divorciado/a</option>
+                        <option value="viudo">Viudo/a</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hora_preferida">14. Hora preferida de contacto:</label>
+                    <input type="time" id="hora_preferida" name="hora_preferida">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mes_inicio">15. Mes de inicio:</label>
+                    <input type="month" id="mes_inicio" name="mes_inicio">
+                </div>
+                
+                <div class="form-group">
+                    <label for="semana_vacaciones">16. Semana de vacaciones:</label>
+                    <input type="week" id="semana_vacaciones" name="semana_vacaciones">
+                </div>
+                
+                <div class="form-group">
+                    <label for="color_favorito">17. Color favorito:</label>
+                    <input type="color" id="color_favorito" name="color_favorito" value="#667eea">
+                </div>
+            </div>
+
+            <!-- Sección 3: Preferencias y Interests -->
+            <div class="form-section">
+                <h2>🎯 Preferencias e Intereses</h2>
+                
+                <div class="form-group">
+                    <label>18. Intereses (seleccionar varios):</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="deportes" name="intereses" value="deportes">
+                            <label for="deportes" style="display:inline;">Deportes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="musica" name="intereses" value="musica">
+                            <label for="musica" style="display:inline;">Música</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lectura" name="intereses" value="lectura">
+                            <label for="lectura" style="display:inline;">Lectura</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="viajes" name="intereses" value="viajes">
+                            <label for="viajes" style="display:inline;">Viajes</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tecnologia" name="intereses" value="tecnologia">
+                            <label for="tecnologia" style="display:inline;">Tecnología</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nivel_satisfaccion">19. Nivel de satisfacción (1-10):</label>
+                    <input type="range" id="nivel_satisfaccion" name="nivel_satisfaccion" min="1" max="10" value="5">
+                    <div class="range-value">Valor: <span id="rangeValue">5</span></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nivel_experiencia">20. Nivel de experiencia:</label>
+                    <select id="nivel_experiencia" name="nivel_experiencia">
+                        <option value="">Seleccionar nivel</option>
+                        <option value="principiante">Principiante</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="avanzado">Avanzado</option>
+                        <option value="experto">Experto</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sección 4: Información Adicional -->
+            <div class="form-section">
+                <h2>📎 Información Extra</h2>
+                
+                <div class="form-group">
+                    <label for="comentarios">21. Comentarios adicionales:</label>
+                    <textarea id="comentarios" name="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="foto_perfil">22. Foto de perfil:</label>
+                    <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha_hora_cita">23. Fecha y hora de cita:</label>
+                    <input type="datetime-local" id="fecha_hora_cita" name="fecha_hora_cita">
+                </div>
+                
+                <div class="form-group">
+                    <label>24. ¿Acepta términos y condiciones?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos" style="display:inline;">Sí, acepto los términos y condiciones</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>25. ¿Desea recibir notificaciones?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="notificaciones_si" name="notificaciones" value="si">
+                            <label for="notificaciones_si" style="display:inline;">Sí</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="notificaciones_no" name="notificaciones" value="no">
+                            <label for="notificaciones_no" style="display:inline;">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Campo oculto -->
+                <input type="hidden" name="codigo_referido" value="WEB2024">
+                
+                <!-- Campo adicional para completar 25+ -->
+                <div class="form-group">
+                    <label for="linkedin">26. Perfil de LinkedIn:</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/usuario">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">🚀 Enviar Formulario</button>
+            
+        </form>
+    </div>
+
+    <script>
+        // Script para mostrar el valor del slider en tiempo real
+        const rangeSlider = document.getElementById('nivel_satisfaccion');
+        const rangeValue = document.getElementById('rangeValue');
+        
+        rangeSlider.addEventListener('input', function() {
+            rangeValue.textContent = this.value;
+        });
+    </script>
+</body>
+</html>
